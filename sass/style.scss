@@ -403,7 +403,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		z-index: 10;
 	}
 	@media screen and (max-width: $screen-sm) {
-		height: 600px;
+		height: calc(100vw)
 	}
 	.display-t,
 	.display-tc {
@@ -411,8 +411,11 @@ h1, h2, h3, h4, h5, h6, figure {
 		display: table;
 		width: 100%;
 		@media screen and (max-width: $screen-sm) {
-			height: 600px;
+			height: calc(100vw);
 		}
+		// @media screen and (max-width: $screen-xs) {
+		// 	transform: scale(0.9);
+		// }
 	}	
 
 	&.fh5co-cover-sm {
@@ -867,6 +870,10 @@ form {
 	.display-tc {
 		display: table-cell!important;
 		vertical-align: middle;
+		@media screen and (max-width: $screen-sm) {
+			vertical-align:bottom;
+			transform: scale(0.7);
+		}
 		h1, h2 {
 			margin: 0;
 			padding: 0;
@@ -953,7 +960,10 @@ form {
 // COUNTDOWN CUSTOM
 .simply-countdown {
     /* The countdown */
-    margin-bottom: 2em;
+		margin-bottom: 2em;
+		@media screen and (max-width: $screen-sm) {
+			margin-bottom: 1em;
+		}
 }
 .simply-countdown > .simply-section {
     /* coutndown blocks */
@@ -964,8 +974,11 @@ form {
     margin: 0 4px;
     @include border-radius(50%);
     position: relative;
-
-    animation: pulse 1s ease infinite, 
+		@media screen and (max-width: $screen-sm) {
+			width:50px;
+			height: 50px;
+		}
+    animation: pulse 1s ease infinite,
 }
 
 @keyframes pulse {
@@ -979,7 +992,11 @@ form {
     display: table-cell;
     vertical-align: middle;
     height: 100px;
-    width: 100px;
+		width: 100px;
+		@media screen and (max-width: $screen-sm) {
+			width:50px;
+			height: 50px;
+		}
 }
 
 .simply-countdown > .simply-section .simply-amount,
@@ -991,14 +1008,21 @@ form {
 
 .simply-countdown > .simply-section .simply-amount {
 	font-size: 30px;
-    /* amounts */
+		/* amounts */
+	@media screen and (max-width: $screen-sm) {
+		font-size:22px;
+		line-height: 22px;
+	}
 }
 
 .simply-countdown > .simply-section .simply-word {
 	color: rgba($brand-white,.7);
 	text-transform: uppercase;
 	font-size: 12px;
-    /* words */
+		/* words */
+		@media screen and (max-width: $screen-sm) {
+			font-size: 7px;
+		}
 }
 
 #fh5co-testimonial,
