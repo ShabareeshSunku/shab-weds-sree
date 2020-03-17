@@ -215,7 +215,7 @@
 
 	
 	$(function(){
-		mobileMenuOutsideClick();
+		//mobileMenuOutsideClick();
 		parallax();
 		offcanvasMenu();
 		burgerMenu();
