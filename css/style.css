@@ -1990,8 +1990,8 @@ form label {
 .video-play-button {
   position: absolute;
   z-index: 10;
-  top: 30px;
-  right: 30px;
+  top: 0px;
+  right: 0px;
   transform: translateX(-50%) translateY(-50%);
   box-sizing: content-box;
   display: block;
