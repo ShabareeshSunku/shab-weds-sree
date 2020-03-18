@@ -12,7 +12,7 @@
 	<title>Sabareesh Weds Saisree</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Get to know the latest updates of sabareesh and saisree's bigday" />
-
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet'
 		type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
@@ -49,8 +49,11 @@
 
 	<div id="page">
 		<header id="fh5co-header" class="fh5co-cover" role="banner"
-			style="background-image:url(images/big-banner-new.jpg);background-size:cover" data-stellar-background-ratio="0.5">
+			style="background-image:url(images/background1.jpg);background-size:cover" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
+			<a id="play-video" class="video-play-button" href="#">
+				<span></span>
+			</a>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center">
@@ -185,14 +188,12 @@
 								<div class="timeline-badge" style="background-image:url(images/story-1.jpg);"></div>
 								<div class="timeline-panel">
 									<div class="timeline-heading">
-										<h3 class="timeline-title">First We Meet</h3>
+										<h3 class="timeline-title">Matrimony "The Cupid"</h3>
 										<span class="date">October 2, 2019</span>
 									</div>
 									<div class="timeline-body">
-										<p>Thanks to the preferences we kept in matrimony we got a mutual match. We both thought of giving a
-											try. After some good conversations we were some what positive of
-											each other but, we didn't took it as last. Later we decided to leave the decision-making to our
-											families</p>
+										<p>It all started when we got a mutual match in matrimony. After some good conversations we were some what positive of
+											each other but, we didn't took it as last.</p>
 									</div>
 								</div>
 							</li>
@@ -204,7 +205,7 @@
 										<span class="date">November 23, 2019</span>
 									</div>
 									<div class="timeline-body">
-										<p>So, I asked her to be my wife, and she replied <i>"yes!!"</i>. <b>Long story short</b></p>
+										<p>I asked <i>"will you be my wife?"</i>, and she replied <i>"yes!!"</i>. <b>Long story short</b></p>
 									</div>
 								</div>
 							</li>
@@ -297,15 +298,6 @@
 						</ul>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="video-container one-third animate-box" data-animate-effect="fadeIn">
-							<iframe src="https://www.youtube.com/embed/YZMxnrmPWJc" frameborder="0"
-								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen></iframe>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 
@@ -320,6 +312,16 @@
 
 		<!-- Modal Caption (Image Text) -->
 		<div id="caption"></div>
+	</div>
+	<div id="videoModal" class="modal"">
+		<span class=" close" id="close-video">&times;</span>
+		<div class="modal-content" style="background-color: #f2f2f2;padding:12px">
+			<div class="video-container one-third animate-box" data-animate-effect="fadeIn">
+				<iframe src="https://www.youtube.com/embed/YZMxnrmPWJc?html5=1&enablejsapi=1"
+					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+					frameborder="0"></iframe>
+			</div>
+		</div>
 	</div>
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
@@ -350,22 +352,26 @@
 	<script src="js/main.js"></script>
 
 	<script>
-		var d = new Date('2020-04-05T04:02:00.000Z');
+		var d = new Date('2020-04-04T09:32:00.000Z');
 
 		// default example
 		simplyCountdown('.simply-countdown-one', {
 			year: d.getFullYear(),
 			month: d.getMonth() + 1,
-			day: d.getDate()
+			day: d.getDate(),
+			hours: d.getHours(),
+			minutes: d.getMinutes(),
+			seconda: d.getSeconds(),
+			enableUtc: true
 		});
 
 		//jQuery example
-		$('#simply-countdown-losange').simplyCountdown({
-			year: d.getFullYear(),
-			month: d.getMonth() + 1,
-			day: d.getDate(),
-			enableUtc: false
-		});
+		// $('#simply-countdown-losange').simplyCountdown({
+		// 	year: d.getFullYear(),
+		// 	month: d.getMonth() + 1,
+		// 	day: d.getDate(),
+		// 	enableUtc: false
+		// });
 		window.setInterval(function () {
 			var url = getCurrent();
 			$('#fh5co-header').delay(1000).fadeTo(1000, 0.3, function () {
@@ -375,10 +381,10 @@
 
 		var index = 1;
 		var arrayOfPartenaires = [
-			"images/background1.jpg",
 			"images/background2.jpg",
 			"images/background3.jpg",
-			"images/background4.jpg",
+			"images/story-3.jpg",
+			"images/background1.jpg",
 		];
 
 		function getCurrent() {
@@ -393,15 +399,37 @@
 		var tiles = document.querySelectorAll('.gallery-tile');
 		var modalImg = document.getElementById("img01")
 		var modal = document.getElementById("myModal");
+		var videoModal = document.getElementById('videoModal')
+		var playIcon = document.getElementById('play-video')
 		var span = document.getElementsByClassName("close")[0]
-		tiles.forEach(el => el.addEventListener('click', event => {
+		var videoClose = document.getElementById('close-video')
+		tiles.forEach(el => el.addEventListener('click', function () {
 			var elm = event.target
 			var popupUrl = elm.getAttribute("data-popup-image")
 			modal.style.display = "block";
 			modalImg.src = popupUrl;
+			playIcon.style.display = "none"
 		}));
-		span.onclick = function () {
+		span.addEventListener('click', function () {
 			modal.style.display = "none";
+			videoModal.style.display = "none";
+			playIcon.style.display = "block"
+		})
+		videoClose.onclick = function () {
+			videoModal.style.display = "none";
+			playIcon.style.display = "block"
+			toggleVideo('hide')
+		}
+		playIcon.addEventListener('click', function () {
+			videoModal.style.display = "block"
+			playIcon.style.display = "none"
+			toggleVideo()
+		})
+		function toggleVideo(state) {
+			// if state == 'hide', hide. Else: show video
+			var iframe = videoModal.getElementsByTagName("iframe")[0].contentWindow;
+			func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+			iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*');
 		}
 	</script>
 
